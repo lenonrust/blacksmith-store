@@ -10,6 +10,11 @@ const productsService = {
     return newObj; 
   },
 
+  async getAll() {
+    const result = await productsModel.getAll();
+    return result;
+  },
+
 };
 
 export default productsService;

@@ -16,7 +16,7 @@ const productsModel = {
     return product as Products;
   },
 
-  async add(body:AddProducts) {
+  async add(body:AddProducts): Promise<number> {
     const { name, amount } = body;
     const sql = `INSERT INTO Trybesmith.Products
     (name, amount)
@@ -24,6 +24,12 @@ const productsModel = {
     (?,?);`;
     const [{ insertId }] = await connection.query<OkPacket>(sql, [name, amount]);
     return insertId;
+  },
+
+  async getAll(): Promise<Products[]> {
+    const sql = 'SELECT * FROM Trybesmith.Products;';
+    const [products] = await connection.query<RowDataPacket[]>(sql);
+    return products as Products[];
   },
 
 };
