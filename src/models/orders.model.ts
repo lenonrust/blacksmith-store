@@ -1,4 +1,5 @@
-import { RowDataPacket } from 'mysql2';
+import { OkPacket, RowDataPacket } from 'mysql2';
+import { Orders } from '../types';
 import connection from './connection';
 
 const ordersModel = {
@@ -16,6 +17,15 @@ const ordersModel = {
     ORDER BY Orders.userId`;
     const [order] = await connection.query<RowDataPacket[]>(sql);
     return order;
+  },
+
+  async add(userId:Orders) {
+    const sql = `INSERT INTO Trybesmith.Orders
+    (userId)
+    VALUES
+    (?);`;
+    const [{ insertId }] = await connection.query<OkPacket>(sql, [userId]);
+    return insertId;
   },
 
 };

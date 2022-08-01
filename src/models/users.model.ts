@@ -28,6 +28,15 @@ const usersModel = {
     return insertId;
   },
 
+  async getByName(username:Users['username']) {
+    const sql = `SELECT 
+      Users.id
+      FROM Trybesmith.Users
+      WHERE Users.username = ?;`;
+    const [[user]] = await connection.query<RowDataPacket[]>(sql, [username]);
+    return user;
+  },
+
 };
 
 export default usersModel;

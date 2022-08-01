@@ -7,6 +7,8 @@ export type Products = {
 
 export type AddProducts = Omit<Products, 'id' | 'orderId'>;
 
+export type EditProducts = Omit<Products, 'id' | 'name' | 'amount'>;
+
 export type Users = {
   id: number
   username: string
@@ -20,4 +22,8 @@ export type AddUsers = Omit<Users, 'id'>;
 export type Login = {
   username: string
   password: string
+};
+
+export type Orders = {
+  id?: number
 };

@@ -32,6 +32,15 @@ const productsModel = {
     return products as Products[];
   },
 
+  async update(id: Products['id'], changes:Products['orderId']) {
+    console.log(id, changes);
+    
+    const sql = `UPDATE Trybesmith.Products
+    SET
+    Products.orderId = ?
+    WHERE Products.id = ?;`;
+    await connection.query(sql, [changes, id]);
+  },
 };
 
 export default productsModel;
