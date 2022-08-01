@@ -17,8 +17,7 @@ export type Users = {
 
 export type AddUsers = Omit<Users, 'id'>;
 
-export type Orders = {
-  id: number
-  userId: number
-  productsIds: Array<number>
+export type Login = {
+  username: string
+  password: string
 };
