@@ -37,7 +37,7 @@ const productsModel = {
     
     const sql = `UPDATE Trybesmith.Products
     SET
-    Products.orderId = ?
+    Products.orderId = ? 
     WHERE Products.id = ?;`;
     await connection.query(sql, [changes, id]);
   },

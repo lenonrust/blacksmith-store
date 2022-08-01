@@ -1,5 +1,5 @@
 import { OkPacket, RowDataPacket } from 'mysql2';
-import { Orders } from '../types';
+import { Orders, Users } from '../types';
 import connection from './connection';
 
 const ordersModel = {
@@ -26,6 +26,17 @@ const ordersModel = {
     (?);`;
     const [{ insertId }] = await connection.query<OkPacket>(sql, [userId]);
     return insertId;
+  },
+
+  async getById(userId:Users['id'], orderId:number) {
+    const sql = `SELECT userId, JSON_ARRAYAGG( Products.id) as productsIds
+    FROM Trybesmith.Orders
+    JOIN Trybesmith.Products
+    ON Orders.id = Products.orderId
+    WHERE Orders.userId = ? AND Products.orderId = ?
+    group by Orders.userId`;
+    const [[order]] = await connection.query<RowDataPacket[]>(sql, [userId, orderId]);
+    return order;
   },
 
 };

@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import ordersModel from '../models/orders.model';
 import productsModel from '../models/products.model';
 import usersModel from '../models/users.model';
 import authService from '../service/auth.service';
@@ -22,10 +23,7 @@ const ordersController = {
     const orderId = await ordersService.add(id);
     await Promise
       .all(productsIds.map((itr:Products['id']) => productsModel.update(itr, orderId)));
-    const result = {
-      userId: id,
-      productsIds,
-    };
+    const result = await ordersModel.getById(id, orderId);
     res.status(201).json(result);
   },
 
