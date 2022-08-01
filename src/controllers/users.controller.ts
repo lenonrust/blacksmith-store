@@ -5,8 +5,9 @@ import authService from '../service/auth.service';
 const usersController = {
 
   async add(req:Request, res:Response) {
-    await usersService.add(req.body);
-    const token = await authService.createToken(req.body);
+    const body = await usersService.validateBody(req.body);
+    await usersService.add(body);
+    const token = await authService.createToken(body);
     res.status(201).json({ token });
   },
 };

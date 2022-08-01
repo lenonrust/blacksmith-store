@@ -15,7 +15,9 @@ const errorMiddleware = (
   if (err.message
     .includes('characters long')
      || err.message
-       .includes('must be a string')) status = 422;
+       .includes('must be a') 
+       || err.message
+         .includes('must be greater')) status = 422;
 
   if (!status) return res.sendStatus(500);
   res.status(status).json({ message: err.message });
