@@ -1,7 +1,17 @@
+import Joi from 'joi';
 import productsModel from '../models/products.model';
 import { AddProducts } from '../types';
 
 const productsService = {
+
+  async validateBody(unknown: unknown): Promise<AddProducts> {
+    const schema = Joi.object<AddProducts>({
+      name: Joi.string().required().min(3),
+      amount: Joi.string().required().min(3),
+    });
+    const result = await schema.validateAsync(unknown);
+    return result;
+  },
 
   async add(body:AddProducts) {
     const id = await productsModel.add(body);
