@@ -11,8 +11,11 @@ const app = express();
 app.use(express.json());
 
 app.use('/login', loginRoutes);
+
 app.use('/orders', ordersRoutes);
+
 app.use('/products', productsRoutes);
+
 app.use('/users', usersRoutes);
 
 app.use(errorMiddleware);
