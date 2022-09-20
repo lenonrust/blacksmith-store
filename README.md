@@ -1,16 +1,21 @@
-# 🚧 README em construção 🚧
+## 💻 Blacksmith Store
 
-<!-- Olá, Tryber!
+Para este projeto, foi desenvolvida uma loja de itens medievais, no formato de uma API, utilizando Typescript. Construindo todas as camadas da aplicação (Models, Service e Controllers) e, por meio dessa aplicação, será possível realizar as operações básicas que se pode fazer em um determinado banco de dados: Criação, Leitura, Atualização e Exclusão (ou CRUD, Create, Read, Update e Delete).
 
-Esse é apenas um arquivo inicial para o README do seu projeto.
+Criados endpoints que irão ler e escrever em um banco de dados, utilizando o MySQL.
 
-É essencial que você preencha esse documento por conta própria, ok?
+## 📋 Tecnologias utilizadas
 
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
+- TypeScript
+- Mysql
 
-⚠️ IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
 
--->
+## :open_file_folder: **Requisitos Trabalhados**
+- [x]  - 01 - Crie um endpoint para o cadastro de produtos
+- [x]  - 02 - Crie um endpoint para a listagem de produtos
+- [x]  - 03 - Crie um endpoint para o cadastro de pessoas usuárias
+- [x]  - 04 - Crie um endpoint para listar todos os pedidos
+- [x]  - 05 - Crie um endpoint para o login de pessoas usuárias
+- [x]  - 06 - Crie as validações dos produtos
+- [x]  - 07 - Crie as validações para as pessoas usuárias
+- [x]  - 08 - Crie um endpoint para o cadastro de um pedido
